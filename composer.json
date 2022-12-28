@@ -37,8 +37,8 @@
         "documentationUrl": "https://github.com/bedh-rp/simple-rp-menu/blob/master/README.md",
         "changelogUrl": "https://raw.githubusercontent.com/bedh-rp/simple-rp-menu/master/CHANGELOG.md",
         "components": {
-            "simpleMenusService": "remoteprogrammer\\simplerpmenu\\services\\SimpleMenusService",
-            "simpleMenusItemsService": "remoteprogrammer\\simplerpmenu\\services\\SimpleMenusItemsService"
+            "simpleRpMenuService": "remoteprogrammer\\simplerpmenu\\services\\SimpleRpMenuService",
+            "simpleRpMenuItemsService": "remoteprogrammer\\simplerpmenu\\services\\SimpleRpMenuItemsService"
         },
         "class": "remoteprogrammer\\simplerpmenu\\SimpleRpMenu"
     }
