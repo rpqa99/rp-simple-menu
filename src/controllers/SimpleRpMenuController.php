@@ -57,7 +57,7 @@ class SimpleRpMenuController extends Controller
 
     /**
      * Handle a request going to our plugin's index action URL,
-     * e.g.: actions/simplerpmenu/
+     * e.g.: actions/simple-rp-menu/simple-rp-menu
      *
      * @return mixed
      */
@@ -74,12 +74,12 @@ class SimpleRpMenuController extends Controller
         $data['menus'] = SimpleRpMenu::$plugin->simplerpmenu->getAllMenus($objSite->id);
         $data['objSite'] = $objSite;
 
-        return $this->renderTemplate('simplerpmenu/_index', $data);
+        return $this->renderTemplate('simple-rp-menu/_index', $data);
     }
 
     /**
      * Handle a request going to our plugin's actionMenuNew URL,
-     * e.g.: actions/simplerpmenu/menu/menu-new
+     * e.g.: actions/simple-rp-menu/simple-rp-menu/menu-new
      *
      * @return mixed
      */
@@ -94,11 +94,11 @@ class SimpleRpMenuController extends Controller
 
         $this->view->registerAssetBundle(SimpleRpMenuAsset::class);
 
-        return $this->renderTemplate('simplerpmenu/_menu-new', $data);
+        return $this->renderTemplate('simple-rp-menu/_menu-new', $data);
     }
     /**
      * Handle a request going to our plugin's actionSaveMenu URL,
-     * e.g.: actions/simplerpmenu/menu/save-menu
+     * e.g.: actions/simple-rp-menu/simple-rp-menu/save-menu
      *
      * @return mixed
      */
@@ -114,7 +114,7 @@ class SimpleRpMenuController extends Controller
         $model->setAttributes(Craft::$app->request->getBodyParams()['data']);
 
         if (!$model->validate()) {
-            Craft::$app->getSession()->setError(Craft::t('simplerpmenu', 'Validation errors have occured.'));
+            Craft::$app->getSession()->setError(Craft::t('simple-rp-menu', 'Validation errors have occured.'));
 
             $objSite = Craft::$app->getSites()->getSiteById($model->site_id);
             if (!$objSite) {
@@ -122,14 +122,14 @@ class SimpleRpMenuController extends Controller
                 $objSite = Craft::$app->getSites()->getSiteByHandle($siteHandle);
             }
 
-            return $this->renderTemplate('simplerpmenu/_menu-new', [
+            return $this->renderTemplate('simple-rp-menu/_menu-new', [
                 'menu' => $model,
                 'errors' => $model->getErrors(),
                 'objSite' => $objSite
             ]);
         } else {
             SimpleRpMenu::$plugin->simplerpmenu->saveMenu($model);
-            Craft::$app->getSession()->setNotice(Craft::t('simplerpmenu', 'Menu saved successfully.'));
+            Craft::$app->getSession()->setNotice(Craft::t('simple-rp-menu', 'Menu saved successfully.'));
 
             $objSite = Craft::$app->getSites()->getSiteById($model->site_id);
             if (!$objSite) {
@@ -158,9 +158,9 @@ class SimpleRpMenuController extends Controller
             if ($menuId) {
                 $menu = SimpleRpMenu::$plugin->simplerpmenu->getMenuById($menuId);
                 if (SimpleRpMenu::$plugin->simplerpmenu->deleteMenuById($menuId)) {
-                    Craft::$app->getSession()->setNotice(Craft::t('simplerpmenu', 'Menu deleted successfully.'));
+                    Craft::$app->getSession()->setNotice(Craft::t('simple-rp-menu', 'Menu deleted successfully.'));
                 } else {
-                    Craft::$app->getSession()->setError(Craft::t('simplerpmenu', 'An error occurred while deleting menu.'));
+                    Craft::$app->getSession()->setError(Craft::t('simple-rp-menu', 'An error occurred while deleting menu.'));
                 }
                 $objSite = Craft::$app->getSites()->getSiteById($menu->site_id);
                 if (!$objSite) {
@@ -186,13 +186,13 @@ class SimpleRpMenuController extends Controller
                 $model->setAttributes(Craft::$app->request->getBodyParams()['data']);
 
                 if (!$model->validate()) {
-                    Craft::$app->getSession()->setError(Craft::t('simplerpmenu', 'Validation errors have occured.'));
+                    Craft::$app->getSession()->setError(Craft::t('simple-rp-menu', 'Validation errors have occured.'));
                     $arrData['menu'] = $model;
                     $arrData['errors'] = $model->getErrors();
                     $arrData['originalMenu'] = $menu;
                 } else {
                     SimpleRpMenu::$plugin->simplerpmenu->saveMenu($model);
-                    Craft::$app->getSession()->setNotice(Craft::t('simplerpmenu', 'Menu saved successfully.'));
+                    Craft::$app->getSession()->setNotice(Craft::t('simple-rp-menu', 'Menu saved successfully.'));
 
                     $arrData['menu'] = $model;
                 }
@@ -205,7 +205,7 @@ class SimpleRpMenuController extends Controller
             }
             $arrData['objSite'] = $objSite;
 
-            return $this->renderTemplate('simplerpmenu/_menu-edit', $arrData);
+            return $this->renderTemplate('simple-rp-menu/_menu-edit', $arrData);
         }
     }
 }
