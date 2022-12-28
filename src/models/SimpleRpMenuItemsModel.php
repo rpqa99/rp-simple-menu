@@ -8,27 +8,26 @@
  * @copyright Copyright (c) 2022 Bedh Prakash
  */
 
-namespace remoteprogrammer\simplerpmenu\services;
+namespace remoteprogrammer\simplerpmenu\models;
 
 use remoteprogrammer\simplerpmenu\SimpleRpMenu;
 
 use Craft;
-use craft\base\Component;
+use craft\base\Model;
 
 /**
- * SimpleMenusItemsService Service
+ * SimpleRpMenuItemsModel Model
  *
- * All of your plugin’s business logic should go in services, including saving data,
- * retrieving data, etc. They provide APIs that your controllers, template variables,
- * and other plugins can interact with.
+ * Models are containers for data. Just about every time information is passed
+ * between services, controllers, and templates in Craft, it’s passed via a model.
  *
- * https://craftcms.com/docs/plugins/services
+ * https://craftcms.com/docs/plugins/models
  *
  * @author    Bedh Prakash
  * @package   SimpleRpMenu
  * @since     1.0.0
  */
-class SimpleMenusItemsService extends Component
+class SimpleRpMenuItemsModel extends Model
 {
     // Public Properties
     // =========================================================================
@@ -75,7 +74,7 @@ class SimpleMenusItemsService extends Component
      */
     public $entry_id;
 
-    /**
+     /**
      * Custom_url attribute
      *
      * @var string
@@ -117,18 +116,17 @@ class SimpleMenusItemsService extends Component
     public $uid;
     
     public $noLink;
-
     public $customShortContent;
 
     /**
-     * This function can literally be anything you want, and you can have as many service
-     * functions as you want
+     * Returns the validation rules for attributes.
      *
-     * From any other plugin file, call it like this:
+     * Validation rules are used by [[validate()]] to check if attribute values are valid.
+     * Child classes may override this method to declare different validation rules.
      *
-     *     SimpleRpMenu::$plugin->simpleMenusItemsService->exampleService()
+     * More info: http://www.yiiframework.com/doc-2.0/guide-input-validation.html
      *
-     * @return mixed
+     * @return array
      */
     public function rules()
     {

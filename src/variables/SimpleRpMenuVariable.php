@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Simple RP Menu plugin for Craft CMS 3.x
  *
@@ -36,21 +37,23 @@ class SimpleRpMenuVariable
      * You can have as many variable functions as you want.  From any Twig template,
      * call it like this:
      *
-     *     {{ craft.simpleRpMenu.exampleVariable }}
+     *     {{ craft.simpleRpMenu.getMenuHTML }}
      *
      * Or, if your variable requires parameters from Twig:
      *
-     *     {{ craft.simpleRpMenu.exampleVariable(twigValue) }}
+     *     {{ craft.simpleRpMenu.getMenuHTML(twigValue) }}
      *
-     * @param null $optional
+     * @param null $handle
+     * @param array $config
+     * 
      * @return string
      */
-    public function exampleVariable($optional = null)
+
+    public function getMenuHTML($handle, $config = array())
     {
-        $result = "And away we go to the Twig template...";
-        if ($optional) {
-            $result = "I'm feeling optional today...";
+        if ($handle != '') {
+            // return SimpleRpMenu::$plugin->simplerpmenu->getMenuHTML($handle, $config);
+            return SimpleRpMenu::$plugin->simplerpmenus->getMenuHTML($handle, $config);
         }
-        return $result;
     }
 }

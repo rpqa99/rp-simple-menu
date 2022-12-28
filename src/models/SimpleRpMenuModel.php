@@ -18,7 +18,7 @@ use craft\validators\HandleValidator;
 use craft\validators\StringValidator;
 
 /**
- * SimpleMenusModel Model
+ * SimpleRpMenuModel Model
  *
  * Models are containers for data. Just about every time information is passed
  * between services, controllers, and templates in Craft, it’s passed via a model.
@@ -29,7 +29,7 @@ use craft\validators\StringValidator;
  * @package   SimpleRpMenu
  * @since     1.0.0
  */
-class SimpleMenusModel extends Model
+class SimpleRpMenuModel extends Model
 {
     // Public Properties
     // =========================================================================
@@ -97,9 +97,9 @@ class SimpleMenusModel extends Model
 
         $validator = new HandleValidator();
         $validator->validateAttribute($this, 'handle');
-        $data = SimpleRpMenu::$plugin->simplerpmenus->getMenuByHandle($this->handle);
+        $data = SimpleRpMenu::$plugin->simplerpmenu->getMenuByHandle($this->handle);
         if ($data && $data->id != $this->id) {
-            $this->addError('handle', Craft::t('simplerpmenus', 'Handle "{handle}" is already in use', ['handle' => $this->handle]));
+            $this->addError('handle', Craft::t('simplerpmenu', 'Handle "{handle}" is already in use', ['handle' => $this->handle]));
         }
 
     }
@@ -108,9 +108,9 @@ class SimpleMenusModel extends Model
 
         $validator = new StringValidator();
         $validator->validateAttribute($this, 'name');
-        $data = SimpleRpMenu::$plugin->simplerpmenus->getMenuByName($this->name);
+        $data = SimpleRpMenu::$plugin->simplerpmenu->getMenuByName($this->name);
         if ($data && $data->id != $this->id) {
-            $this->addError('name', Craft::t('simplerpmenus', 'Name "{name}" is already in use', ['name' => $this->name]));
+            $this->addError('name', Craft::t('simplerpmenu', 'Name "{name}" is already in use', ['name' => $this->name]));
         }
 
     }

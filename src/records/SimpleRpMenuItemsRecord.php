@@ -16,7 +16,7 @@ use Craft;
 use craft\db\ActiveRecord;
 
 /**
- * SimpleMenusRecord Record
+ * SimpleRpMenuItemsRecord Record
  *
  * ActiveRecord is the base class for classes representing relational data in terms of objects.
  *
@@ -31,7 +31,7 @@ use craft\db\ActiveRecord;
  * @package   SimpleRpMenu
  * @since     1.0.0
  */
-class SimpleMenusRecord extends ActiveRecord
+class SimpleRpMenuItemsRecord extends ActiveRecord
 {
     // Public Static Methods
     // =========================================================================
@@ -50,6 +50,6 @@ class SimpleMenusRecord extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%simplerpmenu_simplemenusrecord}}';
+        return '{{%simplerpmenu_items}}';
     }
 }

@@ -10,8 +10,8 @@
 
 namespace remoteprogrammer\simplerpmenu;
 
-use remoteprogrammer\simplerpmenu\services\SimpleMenusService as SimpleMenusServiceService;
-use remoteprogrammer\simplerpmenu\services\SimpleMenusItemsService as SimpleMenusItemsServiceService;
+use remoteprogrammer\simplerpmenu\services\SimpleRpMenuService as SimpleRpMenuServiceService;
+use remoteprogrammer\simplerpmenu\services\SimpleRpMenuItemsService as SimpleRpMenuItemsServiceService;
 use remoteprogrammer\simplerpmenu\variables\SimpleRpMenuVariable;
 
 use Craft;
@@ -38,8 +38,8 @@ use yii\base\Event;
  * @package   SimpleRpMenu
  * @since     1.0.0
  *
- * @property  SimpleMenusServiceService $simplerpmenus
- * @property  SimpleMenusItemsServiceService $simplerpmenuItems
+ * @property  SimpleRpMenuServiceService $simplerpmenu
+ * @property  SimpleRpMenuItemsServiceService $simplerpmenuItems
  */
 class SimpleRpMenu extends Plugin
 {
@@ -96,8 +96,8 @@ class SimpleRpMenu extends Plugin
     {
         parent::init();
         $this->setComponents([
-            'simplerpmenus' => services\SimpleMenusService::class,
-            'simplerpmenuItems' => services\SimpleMenusItemsService::class,
+            'simplerpmenu' => services\SimpleRpMenuService::class,
+            'simplerpmenuItems' => services\SimpleRpMenuItemsService::class,
         ]);
         self::$plugin = $this;
 
@@ -119,14 +119,14 @@ class SimpleRpMenu extends Plugin
                 // $event->rules['cpActionTrigger1'] = 'simple-rp-menu/simple-menu-controller/do-something';
                 // $event->rules['cpActionTrigger2'] = 'simple-rp-menu/simple-menu-items-controller/do-something';
 
-                $event->rules['simple-rp-menu'] = 'simple-rp-menu/menu';
-                $event->rules['simple-rp-menu/<siteHandle:\w+>'] = 'simple-rp-menu/menu';
-                $event->rules['simple-rp-menu/menu-new/<siteHandle:\w+>'] = 'simple-rp-menu/menu/menu-new';
-                $event->rules['simple-rp-menu/delete-menu'] = 'simple-rp-menu/menu/delete-menu';
-                $event->rules['simple-rp-menu/delete-menu/<menuId:\d+>'] = 'simple-rp-menu/menu/delete-menu';
-                $event->rules['simple-rp-menu/menu-edit/<menuId:\d+>'] = 'simple-rp-menu/menu/menu-edit';
-                $event->rules['simple-rp-menu/menu-edit/'] = 'simple-rp-menu/menu';
-                $event->rules['simple-rp-menu/menu-items/<menuId:\d+>'] = 'simple-rp-menu/menu-items/edit';
+                $event->rules['simplerpmenu'] = 'simplerpmenu/menu';
+                $event->rules['simplerpmenu/<siteHandle:\w+>'] = 'simplerpmenu/menu';
+                $event->rules['simplerpmenu/menu-new/<siteHandle:\w+>'] = 'simplerpmenu/menu/menu-new';
+                $event->rules['simplerpmenu/delete-menu'] = 'simplerpmenu/menu/delete-menu';
+                $event->rules['simplerpmenu/delete-menu/<menuId:\d+>'] = 'simplerpmenu/menu/delete-menu';
+                $event->rules['simplerpmenu/menu-edit/<menuId:\d+>'] = 'simplerpmenu/menu/menu-edit';
+                $event->rules['simplerpmenu/menu-edit/'] = 'simplerpmenu/menu';
+                $event->rules['simplerpmenu/menu-items/<menuId:\d+>'] = 'simplerpmenu/menu-items/edit';
             }
         );
 
@@ -137,7 +137,7 @@ class SimpleRpMenu extends Plugin
             function (Event $event) {
                 /** @var CraftVariable $variable */
                 $variable = $event->sender;
-                $variable->set('simpleRpMenu', SimpleRpMenuVariable::class);
+                $variable->set('simplerpmenu', SimpleRpMenuVariable::class);
             }
         );
 
