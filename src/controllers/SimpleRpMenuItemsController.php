@@ -55,7 +55,7 @@ class SimpleRpMenuItemsController extends Controller
 
     /**
      * Handle a request going to our plugin's index action URL,
-     * e.g.: actions/simplerpmenu/menu-items
+     * e.g.: actions/simple-rp-menu/simple-rp-menu-items
      *
      * @return mixed
      */
@@ -76,12 +76,12 @@ class SimpleRpMenuItemsController extends Controller
             $objSite = Craft::$app->getSites()->getSiteByHandle($siteHandle);
         }
         $data['objSite'] = $objSite;
-        return $this->renderTemplate('simplerpmenu/_menu-items', $data);
+        return $this->renderTemplate('simple-rp-menu/_menu-items', $data);
     }
 
     /**
      * Handle a request going to our plugin's actionSave URL,
-     * e.g.: actions/simplerpmenu/menu-items/save-menu-items
+     * e.g.: actions/simple-rp-menu/simple-rp-menu-items/save-menu-items
      *
      * @return mixed
      */
@@ -146,6 +146,6 @@ class SimpleRpMenuItemsController extends Controller
                 }
             }
         }
-        Craft::$app->getSession()->setNotice(Craft::t('simplerpmenu', 'Menu items saved successfully.'));
+        Craft::$app->getSession()->setNotice(Craft::t('simple-rp-menu', 'Menu items saved successfully.'));
     }
 }

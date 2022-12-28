@@ -52,8 +52,7 @@ class SimpleRpMenuVariable
     public function getMenuHTML($handle, $config = array())
     {
         if ($handle != '') {
-            // return SimpleRpMenu::$plugin->simplerpmenu->getMenuHTML($handle, $config);
-            return SimpleRpMenu::$plugin->simplerpmenus->getMenuHTML($handle, $config);
+            return SimpleRpMenu::$plugin->simplerpmenu->getMenuHTML($handle, $config);
         }
     }
 }

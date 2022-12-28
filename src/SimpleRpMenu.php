@@ -119,14 +119,14 @@ class SimpleRpMenu extends Plugin
                 // $event->rules['cpActionTrigger1'] = 'simple-rp-menu/simple-menu-controller/do-something';
                 // $event->rules['cpActionTrigger2'] = 'simple-rp-menu/simple-menu-items-controller/do-something';
 
-                $event->rules['simplerpmenu'] = 'simplerpmenu/menu';
-                $event->rules['simplerpmenu/<siteHandle:\w+>'] = 'simplerpmenu/menu';
-                $event->rules['simplerpmenu/menu-new/<siteHandle:\w+>'] = 'simplerpmenu/menu/menu-new';
-                $event->rules['simplerpmenu/delete-menu'] = 'simplerpmenu/menu/delete-menu';
-                $event->rules['simplerpmenu/delete-menu/<menuId:\d+>'] = 'simplerpmenu/menu/delete-menu';
-                $event->rules['simplerpmenu/menu-edit/<menuId:\d+>'] = 'simplerpmenu/menu/menu-edit';
-                $event->rules['simplerpmenu/menu-edit/'] = 'simplerpmenu/menu';
-                $event->rules['simplerpmenu/menu-items/<menuId:\d+>'] = 'simplerpmenu/menu-items/edit';
+                $event->rules['simplerpmenu'] = 'simple-rp-menu/simple-rp-menu';
+                $event->rules['simplerpmenu/<siteHandle:\w+>'] = 'simple-rp-menu/simple-rp-menu';
+                $event->rules['simplerpmenu/menu-new/<siteHandle:\w+>'] = 'simple-rp-menu/simple-rp-menu/menu-new';
+                $event->rules['simplerpmenu/delete-menu'] = 'simple-rp-menu/simple-rp-menu/delete-menu';
+                $event->rules['simplerpmenu/delete-menu/<menuId:\d+>'] = 'simple-rp-menu/simple-rp-menu/delete-menu';
+                $event->rules['simplerpmenu/menu-edit/<menuId:\d+>'] = 'simple-rp-menu/simple-rp-menu/menu-edit';
+                $event->rules['simplerpmenu/menu-edit/'] = 'simple-rp-menu/simple-rp-menu';
+                $event->rules['simplerpmenu/menu-items/<menuId:\d+>'] = 'simple-rp-menu/simple-rp-menu-items/edit';
             }
         );
 
