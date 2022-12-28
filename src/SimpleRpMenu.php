@@ -38,8 +38,8 @@ use yii\base\Event;
  * @package   SimpleRpMenu
  * @since     1.0.0
  *
- * @property  SimpleMenusServiceService $simpleMenusService
- * @property  SimpleMenusItemsServiceService $simpleMenusItemsService
+ * @property  SimpleMenusServiceService $simplerpmenus
+ * @property  SimpleMenusItemsServiceService $simplerpmenuItems
  */
 class SimpleRpMenu extends Plugin
 {
@@ -95,25 +95,38 @@ class SimpleRpMenu extends Plugin
     public function init()
     {
         parent::init();
+        $this->setComponents([
+            'simplerpmenus' => services\SimpleMenusService::class,
+            'simplerpmenuItems' => services\SimpleMenusItemsService::class,
+        ]);
         self::$plugin = $this;
 
         // Register our site routes
-        Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['siteActionTrigger1'] = 'simple-rp-menu/simple-menu-controller';
-                $event->rules['siteActionTrigger2'] = 'simple-rp-menu/simple-menu-items-controller';
-            }
-        );
+        // Event::on(
+        //     UrlManager::class,
+        //     UrlManager::EVENT_REGISTER_SITE_URL_RULES,
+        //     function (RegisterUrlRulesEvent $event) {
+        //         $event->rules['siteActionTrigger1'] = 'simple-rp-menu/simple-menu-controller';
+        //         $event->rules['siteActionTrigger2'] = 'simple-rp-menu/simple-menu-items-controller';
+        //     }
+        // );
 
         // Register our CP routes
         Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['cpActionTrigger1'] = 'simple-rp-menu/simple-menu-controller/do-something';
-                $event->rules['cpActionTrigger2'] = 'simple-rp-menu/simple-menu-items-controller/do-something';
+                // $event->rules['cpActionTrigger1'] = 'simple-rp-menu/simple-menu-controller/do-something';
+                // $event->rules['cpActionTrigger2'] = 'simple-rp-menu/simple-menu-items-controller/do-something';
+
+                $event->rules['simple-rp-menu'] = 'simple-rp-menu/menu';
+                $event->rules['simple-rp-menu/<siteHandle:\w+>'] = 'simple-rp-menu/menu';
+                $event->rules['simple-rp-menu/menu-new/<siteHandle:\w+>'] = 'simple-rp-menu/menu/menu-new';
+                $event->rules['simple-rp-menu/delete-menu'] = 'simple-rp-menu/menu/delete-menu';
+                $event->rules['simple-rp-menu/delete-menu/<menuId:\d+>'] = 'simple-rp-menu/menu/delete-menu';
+                $event->rules['simple-rp-menu/menu-edit/<menuId:\d+>'] = 'simple-rp-menu/menu/menu-edit';
+                $event->rules['simple-rp-menu/menu-edit/'] = 'simple-rp-menu/menu';
+                $event->rules['simple-rp-menu/menu-items/<menuId:\d+>'] = 'simple-rp-menu/menu-items/edit';
             }
         );
 
@@ -129,15 +142,15 @@ class SimpleRpMenu extends Plugin
         );
 
         // Do something after we're installed
-        Event::on(
-            Plugins::class,
-            Plugins::EVENT_AFTER_INSTALL_PLUGIN,
-            function (PluginEvent $event) {
-                if ($event->plugin === $this) {
-                    // We were just installed
-                }
-            }
-        );
+        // Event::on(
+        //     Plugins::class,
+        //     Plugins::EVENT_AFTER_INSTALL_PLUGIN,
+        //     function (PluginEvent $event) {
+        //         if ($event->plugin === $this) {
+        //             // We were just installed
+        //         }
+        //     }
+        // );
 
 /**
  * Logging in Craft involves using one of the following methods:

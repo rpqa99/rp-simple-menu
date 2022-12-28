@@ -14,6 +14,8 @@ use remoteprogrammer\simplerpmenu\SimpleRpMenu;
 
 use Craft;
 use craft\base\Model;
+use craft\validators\HandleValidator;
+use craft\validators\StringValidator;
 
 /**
  * SimpleMenusModel Model
@@ -33,11 +35,38 @@ class SimpleMenusModel extends Model
     // =========================================================================
 
     /**
-     * Some model attribute
+     * Id attribute
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
+     * Name attribute
      *
      * @var string
      */
-    public $someAttribute = 'Some Default';
+    public $name;
+
+    /**
+     * Handle attribute
+     *
+     * @var string
+     */
+    public $handle;
+
+    public $dateCreated;
+
+    public $dateUpdated;
+
+    public $uid;
+
+    /**
+     * Site Id attribute
+     *
+     * @var int
+     */
+    public $site_id;
 
     // Public Methods
     // =========================================================================
@@ -55,8 +84,34 @@ class SimpleMenusModel extends Model
     public function rules()
     {
         return [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
+            [['id'], 'integer'],
+            [['site_id'], 'integer'],
+            [['name', 'handle'], 'string'],
+            [['name', 'handle'], 'required'],
+            ['handle', 'validateHandle'],
+            ['name', 'validateName'],
         ];
+    }
+
+    public function validateHandle() {
+
+        $validator = new HandleValidator();
+        $validator->validateAttribute($this, 'handle');
+        $data = SimpleRpMenu::$plugin->simplerpmenus->getMenuByHandle($this->handle);
+        if ($data && $data->id != $this->id) {
+            $this->addError('handle', Craft::t('simplerpmenus', 'Handle "{handle}" is already in use', ['handle' => $this->handle]));
+        }
+
+    }
+    
+    public function validateName() {
+
+        $validator = new StringValidator();
+        $validator->validateAttribute($this, 'name');
+        $data = SimpleRpMenu::$plugin->simplerpmenus->getMenuByName($this->name);
+        if ($data && $data->id != $this->id) {
+            $this->addError('name', Craft::t('simplerpmenus', 'Name "{name}" is already in use', ['name' => $this->name]));
+        }
+
     }
 }

@@ -97,38 +97,51 @@ class Install extends Migration
     {
         $tablesCreated = false;
 
-    // simplerpmenu_simplemenusrecord table
-        $tableSchema = Craft::$app->db->schema->getTableSchema('{{%simplerpmenu_simplemenusrecord}}');
+        // simplerpmenu table
+        $tableSchema = Craft::$app->db->schema->getTableSchema('{{%simplerpmenu}}');
         if ($tableSchema === null) {
             $tablesCreated = true;
             $this->createTable(
-                '{{%simplerpmenu_simplemenusrecord}}',
+                '{{%simplerpmenu}}',
                 [
+                    
+                    // Columns in the table
                     'id' => $this->primaryKey(),
+                    'name' => $this->string(255)->notNull()->defaultValue(''),
+                    'handle' => $this->string(255)->notNull()->defaultValue(''),
+					'site_id' => $this->integer(11),
                     'dateCreated' => $this->dateTime()->notNull(),
                     'dateUpdated' => $this->dateTime()->notNull(),
                     'uid' => $this->uid(),
-                // Custom columns in the table
-                    'siteId' => $this->integer()->notNull(),
-                    'some_field' => $this->string(255)->notNull()->defaultValue(''),
                 ]
             );
         }
 
-    // simplerpmenu_simplemenusitemsrecord table
-        $tableSchema = Craft::$app->db->schema->getTableSchema('{{%simplerpmenu_simplemenusitemsrecord}}');
+        // simplerpmenu_items table
+        $tableSchema = Craft::$app->db->schema->getTableSchema('{{%simplerpmenu_items}}');
         if ($tableSchema === null) {
             $tablesCreated = true;
             $this->createTable(
-                '{{%simplerpmenu_simplemenusitemsrecord}}',
+                '{{%simplerpmenu_items}}',
                 [
+                
+                    // Columns in the table
                     'id' => $this->primaryKey(),
+                    'menu_id' => $this->integer(11)->notNull(),
+                    'parent_id' => $this->integer(11)->notNull(),
+                    'item_order' => $this->integer(11)->notNull()->defaultValue(0),
+                    'name' => $this->string(255)->notNull()->defaultValue(''),
+                    'entry_id' => $this->integer(11),
+                    'custom_url' => $this->string(255),
+                    'noLink' => $this->boolean()->defaultValue(false),
+                    'customShortContent' => $this->string(500)->defaultValue(''),
+                    'class' => $this->string(255),
+                    'class_parent' => $this->string(255),
+                    'data_json' => $this->string(255),
+                    'target' => $this->string(255),
                     'dateCreated' => $this->dateTime()->notNull(),
                     'dateUpdated' => $this->dateTime()->notNull(),
                     'uid' => $this->uid(),
-                // Custom columns in the table
-                    'siteId' => $this->integer()->notNull(),
-                    'some_field' => $this->string(255)->notNull()->defaultValue(''),
                 ]
             );
         }
@@ -143,17 +156,28 @@ class Install extends Migration
      */
     protected function createIndexes()
     {
-    // simplerpmenu_simplemenusrecord table
+        // simplerpmenu table
         $this->createIndex(
             $this->db->getIndexName(
-                '{{%simplerpmenu_simplemenusrecord}}',
-                'some_field',
+                '{{%simplerpmenu}}',
+                'name',
                 true
             ),
-            '{{%simplerpmenu_simplemenusrecord}}',
-            'some_field',
+            '{{%simplerpmenu}}',
+            'name',
             true
         );
+        $this->createIndex(
+            $this->db->getIndexName(
+                '{{%simplerpmenu}}',
+                'handle',
+                true
+            ),
+            '{{%simplerpmenu}}',
+            'handle',
+            true
+        );
+
         // Additional commands depending on the db driver
         switch ($this->driver) {
             case DbConfig::DRIVER_MYSQL:
@@ -161,18 +185,7 @@ class Install extends Migration
             case DbConfig::DRIVER_PGSQL:
                 break;
         }
-
-    // simplerpmenu_simplemenusitemsrecord table
-        $this->createIndex(
-            $this->db->getIndexName(
-                '{{%simplerpmenu_simplemenusitemsrecord}}',
-                'some_field',
-                true
-            ),
-            '{{%simplerpmenu_simplemenusitemsrecord}}',
-            'some_field',
-            true
-        );
+        
         // Additional commands depending on the db driver
         switch ($this->driver) {
             case DbConfig::DRIVER_MYSQL:
@@ -189,23 +202,12 @@ class Install extends Migration
      */
     protected function addForeignKeys()
     {
-    // simplerpmenu_simplemenusrecord table
+        // simplerpmenu_items table
         $this->addForeignKey(
-            $this->db->getForeignKeyName('{{%simplerpmenu_simplemenusrecord}}', 'siteId'),
-            '{{%simplerpmenu_simplemenusrecord}}',
-            'siteId',
-            '{{%sites}}',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
-
-    // simplerpmenu_simplemenusitemsrecord table
-        $this->addForeignKey(
-            $this->db->getForeignKeyName('{{%simplerpmenu_simplemenusitemsrecord}}', 'siteId'),
-            '{{%simplerpmenu_simplemenusitemsrecord}}',
-            'siteId',
-            '{{%sites}}',
+            $this->db->getForeignKeyName('{{%simplerpmenu_items}}', 'menu_id'),
+            '{{%simplerpmenu_items}}',
+            'menu_id',
+            '{{%simplerpmenu}}',
             'id',
             'CASCADE',
             'CASCADE'
@@ -228,10 +230,10 @@ class Install extends Migration
      */
     protected function removeTables()
     {
-    // simplerpmenu_simplemenusrecord table
-        $this->dropTableIfExists('{{%simplerpmenu_simplemenusrecord}}');
+        // simplerpmenu table
+        $this->dropTableIfExists('{{%simplerpmenu}}');
 
-    // simplerpmenu_simplemenusitemsrecord table
-        $this->dropTableIfExists('{{%simplerpmenu_simplemenusitemsrecord}}');
+        // simplerpmenu_items table
+        $this->dropTableIfExists('{{%simplerpmenu_items}}');
     }
 }
