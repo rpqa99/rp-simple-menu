@@ -30,23 +30,26 @@ This is a simple menu to add Singles, Structures, Channels, Categories, Custom m
 
 1. Install plugin if not automatically installed by this console command
 
-        cd /path/to/project
+        > cd /path/to/project
         
-        ./craft plugin/install simple-rp-menu
+        > ./craft plugin/install simple-rp-menu
         
 ## Using Simple RP Menu
 
 1. Backend menu create url :
 
-        SITE_URL/admin/simplerpmenu/default
+        SITE_URL/adminName/simplerpmenu/default
         
    a. All Menus
+   
         ![Screenshot](resources/screenshots/All-Menus-SimpleRpMenu.png)
         
    b. Add New Menu
+   
         ![Screenshot](resources/screenshots/New-menu-SimpleRpMenu.png)
         
    c. Edit Menu items/ drag item to chage order / delete items etc
+   
         ![Screenshot](resources/screenshots/Edit-items-menu-SimpleRpMenu.png)
 
 2. Call this in the frontend for usage
