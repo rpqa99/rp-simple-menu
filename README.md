@@ -42,15 +42,15 @@ This is a simple menu to add Singles, Structures, Channels, Categories, Custom m
         
    a. All Menus
    
-        ![Screenshot](resources/screenshots/All-Menus-SimpleRpMenu.png)
+	   ![Screenshot](resources/screenshots/All-Menus-SimpleRpMenu.png)
         
    b. Add New Menu
    
-        ![Screenshot](resources/screenshots/New-menu-SimpleRpMenu.png)
+	   ![Screenshot](resources/screenshots/New-menu-SimpleRpMenu.png)
         
    c. Edit Menu items/ drag item to chage order / delete items etc
    
-        ![Screenshot](resources/screenshots/Edit-items-menu-SimpleRpMenu.png)
+	   ![Screenshot](resources/screenshots/Edit-items-menu-SimpleRpMenu.png)
 
 2. Call this in the frontend for usage
 
