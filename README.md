@@ -50,6 +50,6 @@ This is a simple menu to add Singles, Structures, Channels, Categories, Custom m
 
         {{ craft.simplerpmenu.getRpMenuHTML('HandleName',{ 'menu-id': 'main-menu' }) }}
         
-        {{ craft.olivemenus.getRpMenuHTML('HandleName',{ 'menu-id': 'headerMenu','menu-class':'menuGroup','ul-class':'navbar-nav justify-content-end','li-class':'nav-item','sub-menu-ul-class':'container mega-menu px-0 px-lg-_5 px-xl-1_5' }) }}
+        {{ craft.simplerpmenu.getRpMenuHTML('HandleName',{ 'menu-id': 'headerMenu','menu-class':'menuGroup','ul-class':'navbar-nav justify-content-end','li-class':'nav-item','sub-menu-ul-class':'container mega-menu px-0 px-lg-_5 px-xl-1_5' }) }}
 
 Brought to you by [Bedh Prakash](https://github.com/bedh-rp)
