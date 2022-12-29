@@ -181,8 +181,8 @@
 	white-space: -o-pre-wrap;
 	word-wrap: break-word;
 	padding: 10px;
-	background: #f2f2f2;
-	border: 1px solid #eaeaea;
+	background: lightgoldenrodyellow;
+	border: 1px solid palegoldenrod;
 }
 
 #menu-items-sidebar .btn:hover,
@@ -312,6 +312,12 @@
 
 #menu-items .sortable li.active>.ui-sortable-handle>.item-content {
 	max-height: 695px;
+	background-color: lightgoldenrodyellow;
+    border: 1px solid palegoldenrod;
+}
+
+#menu-items .sortable li.active>.ui-sortable-handle>.item-heading .delete-menu {
+	background-color: palevioletred;
 }
 
 #menu-items .sortable li .item-content .inner {

@@ -21,6 +21,8 @@ use craft\events\PluginEvent;
 use craft\web\UrlManager;
 use craft\web\twig\variables\CraftVariable;
 use craft\events\RegisterUrlRulesEvent;
+use craft\events\RegisterCpNavItemsEvent;
+use craft\web\twig\variables\Cp;
 
 use yii\base\Event;
 
@@ -95,6 +97,19 @@ class SimpleRpMenu extends Plugin
     public function init()
     {
         parent::init();
+
+        Event::on(
+            Cp::class,
+            Cp::EVENT_REGISTER_CP_NAV_ITEMS,
+            function(RegisterCpNavItemsEvent $event) {
+                $event->navItems[] = [
+                    'url' => 'simplerpmenu',
+                    'label' => 'Simple RP Menus',
+                    'icon' => '@remoteprogrammer/simplerpmenu/icon.svg'
+                ];
+            }
+        );
+
         $this->setComponents([
             'simplerpmenu' => services\SimpleRpMenuService::class,
             'simplerpmenuItems' => services\SimpleRpMenuItemsService::class,
