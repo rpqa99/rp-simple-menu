@@ -49,7 +49,7 @@ class SimpleRpMenuVariable
      * @return string
      */
 
-    public function getMenuHTML($handle, $config = array())
+    public function getRpMenuHTML($handle, $config = array())
     {
         if ($handle != '') {
             return SimpleRpMenu::$plugin->simplerpmenu->getMenuHTML($handle, $config);
