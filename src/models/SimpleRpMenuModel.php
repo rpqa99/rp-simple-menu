@@ -99,7 +99,7 @@ class SimpleRpMenuModel extends Model
         $validator->validateAttribute($this, 'handle');
         $data = SimpleRpMenu::$plugin->simplerpmenu->getMenuByHandle($this->handle);
         if ($data && $data->id != $this->id) {
-            $this->addError('handle', Craft::t('simplerpmenu', 'Handle "{handle}" is already in use', ['handle' => $this->handle]));
+            $this->addError('handle', Craft::t('simple-rp-menu', 'Handle "{handle}" is already in use', ['handle' => $this->handle]));
         }
 
     }
@@ -110,7 +110,7 @@ class SimpleRpMenuModel extends Model
         $validator->validateAttribute($this, 'name');
         $data = SimpleRpMenu::$plugin->simplerpmenu->getMenuByName($this->name);
         if ($data && $data->id != $this->id) {
-            $this->addError('name', Craft::t('simplerpmenu', 'Name "{name}" is already in use', ['name' => $this->name]));
+            $this->addError('name', Craft::t('simple-rp-menu', 'Name "{name}" is already in use', ['name' => $this->name]));
         }
 
     }
