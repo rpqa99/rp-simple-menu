@@ -127,6 +127,7 @@ class SimpleRpMenuItemsController extends Controller
                 $arrData['target']= (isset($menuItem['target']) ? $menuItem['target'] : '');
                 $arrData['noLink']= (isset($menuItem['noLink']) ? $menuItem['noLink'] : '');
                 $arrData['customShortContent']= (isset($menuItem['custom-short-content']) ? $menuItem['custom-short-content'] : '');
+                $arrData['title']= (isset($menuItem['title']) ? $menuItem['title'] : '');
 
                 $menuItemModel->setAttributes($arrData);
 
