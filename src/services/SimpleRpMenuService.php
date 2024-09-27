@@ -4,20 +4,20 @@
  *
  * This is a simple menu to add Singles, Structures, Channels, Categories, Custom menus (with description), etc to your name menu for CRAFT CMS V3.x
  *
- * @link      https://github.com/bedh-rp
- * @copyright Copyright (c) 2022 Bedh Prakash
+ * @link      https://github.com/rpqa99
+ * @copyright Copyright (c) 2022 rpqa99
  */
 
-namespace remoteprogrammer\simplerpmenu\services;
+namespace rpqa99\simplerpmenu\services;
 
 
 use Craft;
 use craft\base\Component;
 use craft\elements\Entry;
 use craft\elements\Category;
-use remoteprogrammer\simplerpmenu\models\SimpleRpMenuModel;
-use remoteprogrammer\simplerpmenu\SimpleRpMenu;
-use remoteprogrammer\simplerpmenu\records\SimpleRpMenuRecord;
+use rpqa99\simplerpmenu\models\SimpleRpMenuModel;
+use rpqa99\simplerpmenu\SimpleRpMenu;
+use rpqa99\simplerpmenu\records\SimpleRpMenuRecord;
 
 /**
  * SimpleRpMenuService Service
@@ -28,7 +28,7 @@ use remoteprogrammer\simplerpmenu\records\SimpleRpMenuRecord;
  *
  * https://craftcms.com/docs/plugins/services
  *
- * @author    Bedh Prakash
+ * @author    rpqa99
  * @package   SimpleRpMenu
  * @since     1.0.0
  */
@@ -93,7 +93,7 @@ class SimpleRpMenuService extends Component
 
         $save = $record->save();
         if (!$save) {
-            Craft::getLogger()->log( $record->getErrors(), LOG_ERR, 'simple-rp-menu' );
+            Craft::getLogger()->log( $record->getErrors(), LOG_ERR, 'rp-simple-menu' );
         }
         return $save;
     }
@@ -110,7 +110,7 @@ class SimpleRpMenuService extends Component
      */
     public function getMenuHTML($handle = false, $config ) {
         if ($handle === false || ($menu = $this->getMenuByHandle($handle)) === null) {
-            echo '<p>' . Craft::t('simple-rp-menu', 'A menu with this handle does not exist!') . '</p>';
+            echo '<p>' . Craft::t('rp-simple-menu', 'A menu with this handle does not exist!') . '</p>';
             return;
         }
 
@@ -217,7 +217,7 @@ class SimpleRpMenuService extends Component
             $menu_class .= ' nav-link';
         }
 
-        $menuItemName = Craft::t('simple-rp-menu', $menu_item['name']);
+        $menuItemName = Craft::t('rp-simple-menu', $menu_item['name']);
         if($customShortContent){
             $menuItemName = $customShortContent;
         }

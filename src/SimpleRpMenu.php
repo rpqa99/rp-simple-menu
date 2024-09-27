@@ -4,15 +4,15 @@
  *
  * This is a simple menu to add Singles, Structures, Channels, Categories, Custom menus (with description), etc to your name menu for CRAFT CMS V3.x
  *
- * @link      https://github.com/bedh-rp
- * @copyright Copyright (c) 2022 Bedh Prakash
+ * @link      https://github.com/rpqa99
+ * @copyright Copyright (c) 2022 rpqa99
  */
 
-namespace remoteprogrammer\simplerpmenu;
+namespace rpqa99\simplerpmenu;
 
-use remoteprogrammer\simplerpmenu\services\SimpleRpMenuService as SimpleRpMenuServiceService;
-use remoteprogrammer\simplerpmenu\services\SimpleRpMenuItemsService as SimpleRpMenuItemsServiceService;
-use remoteprogrammer\simplerpmenu\variables\SimpleRpMenuVariable;
+use rpqa99\simplerpmenu\services\SimpleRpMenuService as SimpleRpMenuServiceService;
+use rpqa99\simplerpmenu\services\SimpleRpMenuItemsService as SimpleRpMenuItemsServiceService;
+use rpqa99\simplerpmenu\variables\SimpleRpMenuVariable;
 
 use Craft;
 use craft\base\Plugin;
@@ -36,7 +36,7 @@ use yii\base\Event;
  *
  * https://docs.craftcms.com/v3/extend/
  *
- * @author    Bedh Prakash
+ * @author    rpqa99
  * @package   SimpleRpMenu
  * @since     1.0.0
  *
@@ -105,7 +105,7 @@ class SimpleRpMenu extends Plugin
                 $event->navItems[] = [
                     'url' => 'simplerpmenu',
                     'label' => 'Simple RP Menus',
-                    'icon' => '@remoteprogrammer/simplerpmenu/icon.svg'
+                    'icon' => '@rpqa99/simplerpmenu/icon.svg'
                 ];
             }
         );
@@ -121,8 +121,8 @@ class SimpleRpMenu extends Plugin
         //     UrlManager::class,
         //     UrlManager::EVENT_REGISTER_SITE_URL_RULES,
         //     function (RegisterUrlRulesEvent $event) {
-        //         $event->rules['siteActionTrigger1'] = 'simple-rp-menu/simple-menu-controller';
-        //         $event->rules['siteActionTrigger2'] = 'simple-rp-menu/simple-menu-items-controller';
+        //         $event->rules['siteActionTrigger1'] = 'rp-simple-menu/simple-menu-controller';
+        //         $event->rules['siteActionTrigger2'] = 'rp-simple-menu/simple-menu-items-controller';
         //     }
         // );
 
@@ -131,17 +131,17 @@ class SimpleRpMenu extends Plugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                // $event->rules['cpActionTrigger1'] = 'simple-rp-menu/simple-menu-controller/do-something';
-                // $event->rules['cpActionTrigger2'] = 'simple-rp-menu/simple-menu-items-controller/do-something';
+                // $event->rules['cpActionTrigger1'] = 'rp-simple-menu/simple-menu-controller/do-something';
+                // $event->rules['cpActionTrigger2'] = 'rp-simple-menu/simple-menu-items-controller/do-something';
 
-                $event->rules['simplerpmenu'] = 'simple-rp-menu/simple-rp-menu';
-                $event->rules['simplerpmenu/<siteHandle:\w+>'] = 'simple-rp-menu/simple-rp-menu';
-                $event->rules['simplerpmenu/menu-new/<siteHandle:\w+>'] = 'simple-rp-menu/simple-rp-menu/menu-new';
-                $event->rules['simplerpmenu/delete-menu'] = 'simple-rp-menu/simple-rp-menu/delete-menu';
-                $event->rules['simplerpmenu/delete-menu/<menuId:\d+>'] = 'simple-rp-menu/simple-rp-menu/delete-menu';
-                $event->rules['simplerpmenu/menu-edit/<menuId:\d+>'] = 'simple-rp-menu/simple-rp-menu/menu-edit';
-                $event->rules['simplerpmenu/menu-edit/'] = 'simple-rp-menu/simple-rp-menu';
-                $event->rules['simplerpmenu/menu-items/<menuId:\d+>'] = 'simple-rp-menu/simple-rp-menu-items/edit';
+                $event->rules['simplerpmenu'] = 'rp-simple-menu/rp-simple-menu';
+                $event->rules['simplerpmenu/<siteHandle:\w+>'] = 'rp-simple-menu/rp-simple-menu';
+                $event->rules['simplerpmenu/menu-new/<siteHandle:\w+>'] = 'rp-simple-menu/rp-simple-menu/menu-new';
+                $event->rules['simplerpmenu/delete-menu'] = 'rp-simple-menu/rp-simple-menu/delete-menu';
+                $event->rules['simplerpmenu/delete-menu/<menuId:\d+>'] = 'rp-simple-menu/rp-simple-menu/delete-menu';
+                $event->rules['simplerpmenu/menu-edit/<menuId:\d+>'] = 'rp-simple-menu/rp-simple-menu/menu-edit';
+                $event->rules['simplerpmenu/menu-edit/'] = 'rp-simple-menu/rp-simple-menu';
+                $event->rules['simplerpmenu/menu-items/<menuId:\d+>'] = 'rp-simple-menu/rp-simple-menu-items/edit';
             }
         );
 
@@ -187,7 +187,7 @@ class SimpleRpMenu extends Plugin
  */
         Craft::info(
             Craft::t(
-                'simple-rp-menu',
+                'rp-simple-menu',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),

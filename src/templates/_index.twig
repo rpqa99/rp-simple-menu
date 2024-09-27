@@ -7,9 +7,9 @@
  *
  * This is a simple menu to add Singles, Structures, Channels, Categories, Custom menus (with description), etc to your name menu for CRAFT CMS V3.x
  *
- * @link      https://github.com/bedh-rp
- * @copyright Copyright (c) 2022 Bedh Prakash 
- * @author    Bedh Prakash
+ * @link      https://github.com/rpqa99
+ * @copyright Copyright (c) 2022 rpqa99 
+ * @author    rpqa99
  * @package   SimpleRpMenu
  * @since     1.0.0
  */
@@ -18,7 +18,7 @@
 {% extends "_layouts/cp" %}
 
 {# Link for the ? icon at the bottom of the page #}
-{% set docsUrl = "remoteprogrammer/simplerpmenu/blob/master/README.md" %}
+{% set docsUrl = "rpqa99/simplerpmenu/blob/master/README.md" %}
 
 {# The title of this CP section #}
 {% set title = "All Menus" %}
@@ -26,8 +26,8 @@
 {% set selectedTab = 'menus' %}
 
 {% set tabs = {
-    menus:  { label: "All Menus"|t('simple-rp-menu'), url: url('simplerpmenu/' ~ objSite.handle) },
-    new:    { label: "New Menu"|t('simple-rp-menu'), url: url('simplerpmenu/menu-new/' ~ objSite.handle) }
+    menus:  { label: "All Menus"|t('rp-simple-menu'), url: url('simplerpmenu/' ~ objSite.handle) },
+    new:    { label: "New Menu"|t('rp-simple-menu'), url: url('simplerpmenu/menu-new/' ~ objSite.handle) }
 } %}
 
 {% set showSiteMenu = (craft.app.getIsMultiSite() ? true : false) %}
@@ -42,25 +42,25 @@
 
 {# The content of the CP Section#}
 {% set content %}
-    <p id="menu-none" {% if menus is not empty %} class="hidden" {% endif %}>{{ "No menus exist yet."|t('simple-rp-menu') }}</p>
+    <p id="menu-none" {% if menus is not empty %} class="hidden" {% endif %}>{{ "No menus exist yet."|t('rp-simple-menu') }}</p>
     {% if menus | length %}
     <table id="menu-list" class="data fullwidth collapsible">
         <thead>
-            <th scope="col">{{ "Name"|t('simple-rp-menu') }}</th>
-            <th scope="col">{{ "Handle"|t('simple-rp-menu') }}</th>
+            <th scope="col">{{ "Name"|t('rp-simple-menu') }}</th>
+            <th scope="col">{{ "Handle"|t('rp-simple-menu') }}</th>
             <td class="thin"></td>
             <td class="thin"></td>
         </thead>
         <tbody>
         {% for menu in menus %}
-            <tr data-id="{{ menu.id }}" data-name="{{ menu.name|t('simple-rp-menu') }}">
-                <th scope="row" data-title="{{ 'Name'|t('simple-rp-menu') }}"><a href="{{ url('simplerpmenu/menu-items/' ~ menu.id) }}">{{ menu.name|t('simple-rp-menu') }}</a></th>
-                <td data-title="{{ 'Handle'|t('simple-rp-menu') }}"><code>{{ menu.handle }}</code></td>
+            <tr data-id="{{ menu.id }}" data-name="{{ menu.name|t('rp-simple-menu') }}">
+                <th scope="row" data-title="{{ 'Name'|t('rp-simple-menu') }}"><a href="{{ url('simplerpmenu/menu-items/' ~ menu.id) }}">{{ menu.name|t('rp-simple-menu') }}</a></th>
+                <td data-title="{{ 'Handle'|t('rp-simple-menu') }}"><code>{{ menu.handle }}</code></td>
                 <td class="thin">
-                    <a class="edit icon" title="{{ 'Edit'|t('simple-rp-menu') }}" href="{{ url('simplerpmenu/menu-edit/' ~ menu.id) }}" role="button"></a>
+                    <a class="edit icon" title="{{ 'Edit'|t('rp-simple-menu') }}" href="{{ url('simplerpmenu/menu-edit/' ~ menu.id) }}" role="button"></a>
                 </td>
                 <td class="thin">
-                    <a class="delete icon" title="{{ 'Delete'|t('simple-rp-menu') }}" role="button"></a>
+                    <a class="delete icon" title="{{ 'Delete'|t('rp-simple-menu') }}" role="button"></a>
                 </td>
             </tr>
         {% endfor %}
@@ -68,7 +68,7 @@
     </table>
     {% endif %}
     <div id="menu-new" class="buttons">
-        <a href="{{ url('simplerpmenu/menu-new/' ~ objSite.handle) }}" class="btn submit add icon">{{ "New Menu"|t('simple-rp-menu') }}</a>
+        <a href="{{ url('simplerpmenu/menu-new/' ~ objSite.handle) }}" class="btn submit add icon">{{ "New Menu"|t('rp-simple-menu') }}</a>
     </div>
 {% endset %}
 {% js %}

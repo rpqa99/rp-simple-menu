@@ -4,13 +4,13 @@
  *
  * This is a simple menu to add Singles, Structures, Channels, Categories, Custom menus (with description), etc to your name menu for CRAFT CMS V3.x
  *
- * @link      https://github.com/bedh-rp
- * @copyright Copyright (c) 2022 Bedh Prakash
+ * @link      https://github.com/rpqa99
+ * @copyright Copyright (c) 2022 rpqa99
  */
 
-namespace remoteprogrammer\simplerpmenu\models;
+namespace rpqa99\simplerpmenu\models;
 
-use remoteprogrammer\simplerpmenu\SimpleRpMenu;
+use rpqa99\simplerpmenu\SimpleRpMenu;
 
 use Craft;
 use craft\base\Model;
@@ -25,7 +25,7 @@ use craft\validators\StringValidator;
  *
  * https://craftcms.com/docs/plugins/models
  *
- * @author    Bedh Prakash
+ * @author    rpqa99
  * @package   SimpleRpMenu
  * @since     1.0.0
  */
@@ -99,7 +99,7 @@ class SimpleRpMenuModel extends Model
         $validator->validateAttribute($this, 'handle');
         $data = SimpleRpMenu::$plugin->simplerpmenu->getMenuByHandle($this->handle);
         if ($data && $data->id != $this->id) {
-            $this->addError('handle', Craft::t('simple-rp-menu', 'Handle "{handle}" is already in use', ['handle' => $this->handle]));
+            $this->addError('handle', Craft::t('rp-simple-menu', 'Handle "{handle}" is already in use', ['handle' => $this->handle]));
         }
 
     }
@@ -110,7 +110,7 @@ class SimpleRpMenuModel extends Model
         $validator->validateAttribute($this, 'name');
         $data = SimpleRpMenu::$plugin->simplerpmenu->getMenuByName($this->name);
         if ($data && $data->id != $this->id) {
-            $this->addError('name', Craft::t('simple-rp-menu', 'Name "{name}" is already in use', ['name' => $this->name]));
+            $this->addError('name', Craft::t('rp-simple-menu', 'Name "{name}" is already in use', ['name' => $this->name]));
         }
 
     }

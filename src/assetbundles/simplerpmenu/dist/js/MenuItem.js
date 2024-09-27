@@ -5,8 +5,8 @@
  *
  * This is a simple menu to add Singles, Structures, Channels, Categories, Custom menus (with description), etc to your name menu for CRAFT CMS V3.x
  *
- * @link      https://github.com/bedh-rp
- * @copyright Copyright (c) 2022 Bedh Prakash
+ * @link      https://github.com/rpqa99
+ * @copyright Copyright (c) 2022 rpqa99
  */
 
 $(document).ready(function() {
@@ -35,7 +35,7 @@ $(document).ready(function() {
     var deletedMenuItems = $('#menu-items-deleted');
 
     menuList.on('click', '.delete-menu', function() {
-        if (confirm(Craft.t('simple-rp-menu','Are you sure you want to delete this menu item?'))) {
+        if (confirm(Craft.t('rp-simple-menu','Are you sure you want to delete this menu item?'))) {
             var element = $(this),
                 targetToDeleteID = element.attr('data-id'),
                 targetToDelete = $('#menu-item-' + targetToDeleteID);
@@ -125,7 +125,7 @@ $(document).ready(function() {
                                 itemHTML += '<div class="inner">';
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Name') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Name') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<input class="text nicetext fullwidth" type="text" name="item-name" value="' + itemName + '">';
@@ -134,7 +134,7 @@ $(document).ready(function() {
 
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Without Link ?') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Without Link ?') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<select id="noLink-' + inputCounter + '" class="text nicetext fullwidth noLink-menu" name="noLink">';
@@ -146,7 +146,7 @@ $(document).ready(function() {
 
                                     // itemHTML += '<div class="row field">';
                                     //     itemHTML += '<div class="heading">';
-                                    //         itemHTML += '<label>' + Craft.t('simple-rp-menu','Display Short Content ?') + ':</label>';
+                                    //         itemHTML += '<label>' + Craft.t('rp-simple-menu','Display Short Content ?') + ':</label>';
                                     //     itemHTML += '</div>';
                                     //     itemHTML += '<div class="input">';
                                     //         itemHTML += '<select id="hasShortDescp-' + inputCounter + '" class="text nicetext fullwidth" name="hasShortDescp">';
@@ -158,7 +158,7 @@ $(document).ready(function() {
 
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Title') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Title') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<input class="text nicetext fullwidth" type="text" name="title" value="" />';
@@ -167,7 +167,7 @@ $(document).ready(function() {
 
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Custom Short Content') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Custom Short Content') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<textarea class="text nicetext fullwidth" type="text" name="custom-short-content"></textarea>';
@@ -176,7 +176,7 @@ $(document).ready(function() {
 
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Class') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Class') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<input class="text nicetext fullwidth" type="text" name="class" value="" />';
@@ -184,7 +184,7 @@ $(document).ready(function() {
                                     itemHTML += '</div>';
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Class parent') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Class parent') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<input class="text nicetext fullwidth" type="text" name="class-parent" value="" />';
@@ -192,7 +192,7 @@ $(document).ready(function() {
                                     itemHTML += '</div>';
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Data JSON') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Data JSON') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<textarea class="text nicetext fullwidth" name="data-json"></textarea>';
@@ -201,7 +201,7 @@ $(document).ready(function() {
 
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Target options') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Target options') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<select id="target-' + inputCounter + '" class="text nicetext fullwidth" name="target">';
@@ -213,7 +213,7 @@ $(document).ready(function() {
 
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            if ( itemURL ) itemHTML += '<label>' + Craft.t('simple-rp-menu','Original') + ':</label> <a href="' + itemURL + '" target="_blank">' + itemName + '</a>';
+                                            if ( itemURL ) itemHTML += '<label>' + Craft.t('rp-simple-menu','Original') + ':</label> <a href="' + itemURL + '" target="_blank">' + itemName + '</a>';
                                         itemHTML += '</div>';
                                     itemHTML += '</div>';
                                 itemHTML += '</div>';
@@ -257,7 +257,7 @@ $(document).ready(function() {
                                 itemHTML += '<div class="inner">';
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Name') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Name') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<input class="text nicetext fullwidth" type="text" name="item-name" value="' + customMenuTitleVal + '">';
@@ -265,7 +265,7 @@ $(document).ready(function() {
                                     itemHTML += '</div>';
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Without Link ?') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Without Link ?') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<select id="noLink-' + inputCounter + '" class="text nicetext fullwidth noLink-menu" name="noLink">';
@@ -277,7 +277,7 @@ $(document).ready(function() {
 
                                     // itemHTML += '<div class="row field">';
                                     //     itemHTML += '<div class="heading">';
-                                    //         itemHTML += '<label>' + Craft.t('simple-rp-menu','Display Short Content ?') + ':</label>';
+                                    //         itemHTML += '<label>' + Craft.t('rp-simple-menu','Display Short Content ?') + ':</label>';
                                     //     itemHTML += '</div>';
                                     //     itemHTML += '<div class="input">';
                                     //         itemHTML += '<select id="hasShortDescp-' + inputCounter + '" class="text nicetext fullwidth" name="hasShortDescp">';
@@ -289,7 +289,7 @@ $(document).ready(function() {
                                     
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Title') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Title') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<input class="text nicetext fullwidth" type="text" name="title" value="' + customTitleVal + '">';
@@ -299,7 +299,7 @@ $(document).ready(function() {
 
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Custom Short Content') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Custom Short Content') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<textarea class="text nicetext fullwidth" type="text" name="custom-short-content" >' + customMenuShortContentVal + '</textarea>';
@@ -308,7 +308,7 @@ $(document).ready(function() {
 
                                     itemHTML += '<div class="row field" id="custom-url-wrapper">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Custom URL') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Custom URL') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<input class="text nicetext fullwidth" type="text" name="custom-url" value="' + customMenuURLVal + '">';
@@ -316,7 +316,7 @@ $(document).ready(function() {
                                     itemHTML += '</div>';
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Class') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Class') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<input class="text nicetext fullwidth" type="text" name="class" value="" />';
@@ -324,7 +324,7 @@ $(document).ready(function() {
                                     itemHTML += '</div>';
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Class parent') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Class parent') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<input class="text nicetext fullwidth" type="text" name="class-parent" value="" />';
@@ -332,7 +332,7 @@ $(document).ready(function() {
                                     itemHTML += '</div>';
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Data JSON') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Data JSON') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<textarea class="text nicetext fullwidth" name="data-json"></textarea>';
@@ -341,7 +341,7 @@ $(document).ready(function() {
 
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
-                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Target options') + ':</label>';
+                                            itemHTML += '<label>' + Craft.t('rp-simple-menu','Target options') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
                                             itemHTML += '<select id="target-' + inputCounter + '" class="text nicetext fullwidth" name="target">';
@@ -446,5 +446,5 @@ $(document).ready(function() {
     });
 });
 function confirm_delete() {
-    return confirm(Craft.t('simple-rp-menu', "Are you sure you want to delete the menu and all it's items?"));
+    return confirm(Craft.t('rp-simple-menu', "Are you sure you want to delete the menu and all it's items?"));
 }

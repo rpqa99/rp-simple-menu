@@ -4,13 +4,13 @@
  *
  * This is a simple menu to add Singles, Structures, Channels, Categories, Custom menus (with description), etc to your name menu for CRAFT CMS V3.x
  *
- * @link      https://github.com/bedh-rp
- * @copyright Copyright (c) 2022 Bedh Prakash
+ * @link      https://github.com/rpqa99
+ * @copyright Copyright (c) 2022 rpqa99
  */
 
-namespace remoteprogrammer\simplerpmenu\records;
+namespace rpqa99\simplerpmenu\records;
 
-use remoteprogrammer\simplerpmenu\SimpleRpMenu;
+use rpqa99\simplerpmenu\SimpleRpMenu;
 
 use Craft;
 use craft\db\ActiveRecord;
@@ -27,7 +27,7 @@ use craft\db\ActiveRecord;
  *
  * http://www.yiiframework.com/doc-2.0/guide-db-active-record.html
  *
- * @author    Bedh Prakash
+ * @author    rpqa99
  * @package   SimpleRpMenu
  * @since     1.0.0
  */

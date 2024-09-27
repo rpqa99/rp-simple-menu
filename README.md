@@ -18,7 +18,7 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        > composer require remoteprogrammer/simple-rp-menu
+        > composer require rpqa99/rp-simple-menu
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Simple RP Menu.
 
@@ -32,7 +32,7 @@ This is a simple menu to add Singles, Structures, Channels, Categories, Custom m
 
          cd /path/to/project
         
-         ./craft plugin/install simple-rp-menu
+         ./craft plugin/install rp-simple-menu
         
 ## Using Simple RP Menu
 
@@ -61,4 +61,4 @@ This is a simple menu to add Singles, Structures, Channels, Categories, Custom m
         
         {{ craft.simplerpmenu.getRpMenuHTML('HandleName',{ 'menu-id': 'headerMenu','menu-class':'menuGroup','ul-class':'navbar-nav justify-content-end','li-class':'nav-item','sub-menu-ul-class':'container mega-menu px-0 px-lg-_5 px-xl-1_5' }) }}
 
-Brought to you by [Bedh Prakash](https://github.com/bedh-rp)
+Brought to you by [rpqa99](https://github.com/rpqa99)
