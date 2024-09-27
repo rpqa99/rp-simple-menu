@@ -1,5 +1,5 @@
 {
-    "name": "rpqa99/rp-simple-menu",
+    "name": "rpqa99/rpsimplemenu",
     "description": "This is a simple menu to add Singles, Structures, Channels, Categories, Custom menus (with description), etc to your name menu for CRAFT CMS V3.x",
     "type": "craft-plugin",
     "version": "1.0.2",
@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-          "rpqa99\\simplerpmenu\\": "src/"
+          "rpqa99\\rpsimplemenu\\": "src/"
         }
     },
     "extra": {
@@ -37,9 +37,9 @@
         "documentationUrl": "https://github.com/rpqa99/rp-simple-menu/blob/master/README.md",
         "changelogUrl": "https://github.com/rpqa99/rp-simple-menu/blob/master/CHANGELOG.md",
         "components": {
-            "simpleRpMenuService": "rpqa99\\simplerpmenu\\services\\SimpleRpMenuService",
-            "simpleRpMenuItemsService": "rpqa99\\simplerpmenu\\services\\SimpleRpMenuItemsService"
+            "simpleRpMenuService": "rpqa99\\rpsimplemenu\\services\\SimpleRpMenuService",
+            "simpleRpMenuItemsService": "rpqa99\\rpsimplemenu\\services\\SimpleRpMenuItemsService"
         },
-        "class": "rpqa99\\simplerpmenu\\SimpleRpMenu"
+        "class": "rpqa99\\rpsimplemenu\\SimpleRpMenu"
     }
 }
