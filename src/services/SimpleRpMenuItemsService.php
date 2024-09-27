@@ -84,6 +84,7 @@ class SimpleRpMenuItemsService extends Component
         $record->target = $model->target;
         $record->noLink = $model->noLink;
         $record->customShortContent = $model->customShortContent;
+        $record->title = $model->title;
 
         $save = $record->save();
         if ( !$save ) {
@@ -137,6 +138,7 @@ class SimpleRpMenuItemsService extends Component
             $arrMenuItems[$intKey]['target'] = $objItem->target;
             $arrMenuItems[$intKey]['noLink'] = $objItem->noLink;
             $arrMenuItems[$intKey]['customShortContent'] = $objItem->customShortContent;
+            $arrMenuItems[$intKey]['title'] = $objItem->title;
         }
 
         if ($arrMenuItems) {
@@ -291,6 +293,16 @@ class SimpleRpMenuItemsService extends Component
                         //         $localHTML .= '</select>';
                         //     $localHTML .= '</div>';
                         // $localHTML .= '</div>';
+
+                        $localHTML .= '<div class="row field">';
+                            $localHTML .= '<div class="heading">';
+                                $localHTML .= '<label>' . Craft::t('simple-rp-menu', 'Title') . ':</label>';
+                            $localHTML .= '</div>';
+                            $localHTML .= '<div class="input">';
+                                $localHTML .= '<input class="text nicetext fullwidth" type="text" name="title" value="' .$menuItem['title']. '" />';
+                            $localHTML .= '</div>';
+                        $localHTML .= '</div>';
+
 
                         $localHTML .= '<div class="row field">';
                             $localHTML .= '<div class="heading">';
