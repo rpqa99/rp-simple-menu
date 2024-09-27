@@ -211,6 +211,7 @@ class SimpleRpMenuService extends Component
         $target = $menu_item['target'];
         $noLink = $menu_item['noLink'];
         $customShortContent = $menu_item['customShortContent'];
+        $title = $menu_item['title'];
         if($noLink){
             $menu_item_url = '';
             $menu_class .= ' nav-link';
@@ -235,9 +236,9 @@ class SimpleRpMenuService extends Component
         $localHTML .= '<li id="menu-item-' .$menu_item['id']. '" class="' .$menu_item_class. '">';
 
         if ($menu_item_url) {
-            $localHTML .= '<a class="nav-link '. $menu_class. '" target="'. $target .'" href="' .$menu_item_url. '"' .$data_attributes. '>' . $menuItemName . '</a>';
+            $localHTML .= '<a class="nav-link '. $menu_class. '" target="'. $target .'" title="' .$title. '" href="' .$menu_item_url. '"' .$data_attributes. '>' . $menuItemName . '</a>';
         } else {
-            $localHTML .= '<span class="'. $menu_class. '"' .$data_attributes. '>' . $menuItemName . '</span>';
+            $localHTML .= '<span class="'. $menu_class. '"' .$data_attributes. ' title="' .$title. '">' . $menuItemName . '</span>';
         }
         if(isset($menu_item['children'])){
             $localHTML .='<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><span class="ddarow"></span></a>';

@@ -158,6 +158,15 @@ $(document).ready(function() {
 
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
+                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Title') + ':</label>';
+                                        itemHTML += '</div>';
+                                        itemHTML += '<div class="input">';
+                                            itemHTML += '<input class="text nicetext fullwidth" type="text" name="title" value="" />';
+                                        itemHTML += '</div>';
+                                    itemHTML += '</div>';
+
+                                    itemHTML += '<div class="row field">';
+                                        itemHTML += '<div class="heading">';
                                             itemHTML += '<label>' + Craft.t('simple-rp-menu','Custom Short Content') + ':</label>';
                                         itemHTML += '</div>';
                                         itemHTML += '<div class="input">';
@@ -227,6 +236,8 @@ $(document).ready(function() {
                     customMenuURLVal = customMenuURL.val(),
                     customMenuShortContent = $('#custom-menu-short-content'),
                     customMenuShortContentVal = customMenuShortContent.val(),
+                    customTitle = $('#title'),
+                    customTitleVal = customTitle.val();
                     itemHTML = '';
 
                 customMenuTitle.removeClass('error');
@@ -276,6 +287,15 @@ $(document).ready(function() {
                                     //     itemHTML += '</div>';
                                     // itemHTML += '</div>';
                                     
+                                    itemHTML += '<div class="row field">';
+                                        itemHTML += '<div class="heading">';
+                                            itemHTML += '<label>' + Craft.t('simple-rp-menu','Title') + ':</label>';
+                                        itemHTML += '</div>';
+                                        itemHTML += '<div class="input">';
+                                            itemHTML += '<input class="text nicetext fullwidth" type="text" name="title" value="' + customTitleVal + '">';
+                                        itemHTML += '</div>';
+                                    itemHTML += '</div>';
+
 
                                     itemHTML += '<div class="row field">';
                                         itemHTML += '<div class="heading">';
@@ -366,6 +386,10 @@ $(document).ready(function() {
                         
                         menuItemEntryIDElement = menuItemElement.find('input[name="item-entry-id"]'),
                         menuItemCustomURLElement = menuItemElement.find('input[name="custom-url"]'),
+
+                        menuItemTitleElement = menuItemElement.find('input[name="title"]'),
+                        menuItemTitleValue = menuItemTitleElement.val(),
+                        
                         menuItemCustomShortContentElement = menuItemElement.find('textarea[name="custom-short-content"]'),
                         menuItemCustomShortContentValue = menuItemCustomShortContentElement.val(),
 
@@ -397,6 +421,7 @@ $(document).ready(function() {
                         'name' : menuItemNameValue,
                         'entry-id' : menuItemEntryIDValue,
                         'custom-url' : menuItemCustomURLValue,
+                        'title' : menuItemTitleValue,
                         'custom-short-content' : menuItemCustomShortContentValue,
                         'class' : menuItemClassValue,
                         'class-parent' : menuItemClassParentValue,

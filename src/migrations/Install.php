@@ -134,6 +134,7 @@ class Install extends Migration
                     'entry_id' => $this->integer(11),
                     'custom_url' => $this->string(255),
                     'noLink' => $this->boolean()->defaultValue(false),
+                    'title' => $this->string(255),
                     'customShortContent' => $this->string(500)->defaultValue(''),
                     'class' => $this->string(255),
                     'class_parent' => $this->string(255),
