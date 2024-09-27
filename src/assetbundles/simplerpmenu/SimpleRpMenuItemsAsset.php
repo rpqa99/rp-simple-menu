@@ -4,11 +4,11 @@
  *
  * This is a simple menu to add Singles, Structures, Channels, Categories, Custom menus (with description), etc to your name menu for CRAFT CMS V3.x
  *
- * @link      https://github.com/bedh-rp
- * @copyright Copyright (c) 2022 Bedh Prakash
+ * @link      https://github.com/rpqa99
+ * @copyright Copyright (c) 2022 rpqa99
  */
 
-namespace remoteprogrammer\simplerpmenu\assetbundles\simplerpmenu;
+namespace rpqa99\simplerpmenu\assetbundles\simplerpmenu;
 
 use Craft;
 use craft\web\AssetBundle;
@@ -28,7 +28,7 @@ use craft\web\assets\cp\CpAsset;
  *
  * http://www.yiiframework.com/doc-2.0/guide-structure-assets.html
  *
- * @author    Bedh Prakash
+ * @author    rpqa99
  * @package   SimpleRpMenu
  * @since     1.0.0
  */
@@ -43,7 +43,7 @@ class SimpleRpMenuItemsAsset extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = "@remoteprogrammer/simplerpmenu/assetbundles/simplerpmenu/dist";
+        $this->sourcePath = "@rpqa99/simplerpmenu/assetbundles/simplerpmenu/dist";
 
         // define the dependencies
         $this->depends = [

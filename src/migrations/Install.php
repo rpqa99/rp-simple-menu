@@ -4,13 +4,13 @@
  *
  * This is a simple menu to add Singles, Structures, Channels, Categories, Custom menus (with description), etc to your name menu for CRAFT CMS V3.x
  *
- * @link      https://github.com/bedh-rp
- * @copyright Copyright (c) 2022 Bedh Prakash
+ * @link      https://github.com/rpqa99
+ * @copyright Copyright (c) 2022 rpqa99
  */
 
-namespace remoteprogrammer\simplerpmenu\migrations;
+namespace rpqa99\simplerpmenu\migrations;
 
-use remoteprogrammer\simplerpmenu\SimpleRpMenu;
+use rpqa99\simplerpmenu\SimpleRpMenu;
 
 use Craft;
 use craft\config\DbConfig;
@@ -26,7 +26,7 @@ use craft\db\Migration;
  * If you need to perform any additional actions on install/uninstall, override the
  * safeUp() and safeDown() methods.
  *
- * @author    Bedh Prakash
+ * @author    rpqa99
  * @package   SimpleRpMenu
  * @since     1.0.0
  */

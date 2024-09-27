@@ -4,15 +4,15 @@
  *
  * This is a simple menu to add Singles, Structures, Channels, Categories, Custom menus (with description), etc to your name menu for CRAFT CMS V3.x
  *
- * @link      https://github.com/bedh-rp
- * @copyright Copyright (c) 2022 Bedh Prakash
+ * @link      https://github.com/rpqa99
+ * @copyright Copyright (c) 2022 rpqa99
  */
 
-namespace remoteprogrammer\simplerpmenu\controllers;
+namespace rpqa99\simplerpmenu\controllers;
 
-use remoteprogrammer\simplerpmenu\assetbundles\simplerpmenu\SimpleRpMenuItemsAsset;
-use remoteprogrammer\simplerpmenu\models\SimpleRpMenuItemsModel;
-use remoteprogrammer\simplerpmenu\SimpleRpMenu;
+use rpqa99\simplerpmenu\assetbundles\simplerpmenu\SimpleRpMenuItemsAsset;
+use rpqa99\simplerpmenu\models\SimpleRpMenuItemsModel;
+use rpqa99\simplerpmenu\SimpleRpMenu;
 
 use Craft;
 use craft\web\Controller;
@@ -33,7 +33,7 @@ use craft\web\Controller;
  *
  * https://craftcms.com/docs/plugins/controllers
  *
- * @author    Bedh Prakash
+ * @author    rpqa99
  * @package   SimpleRpMenu
  * @since     1.0.0
  */
@@ -55,7 +55,7 @@ class SimpleRpMenuItemsController extends Controller
 
     /**
      * Handle a request going to our plugin's index action URL,
-     * e.g.: actions/simple-rp-menu/simple-rp-menu-items
+     * e.g.: actions/rp-simple-menu/rp-simple-menu-items
      *
      * @return mixed
      */
@@ -76,12 +76,12 @@ class SimpleRpMenuItemsController extends Controller
             $objSite = Craft::$app->getSites()->getSiteByHandle($siteHandle);
         }
         $data['objSite'] = $objSite;
-        return $this->renderTemplate('simple-rp-menu/_menu-items', $data);
+        return $this->renderTemplate('rp-simple-menu/_menu-items', $data);
     }
 
     /**
      * Handle a request going to our plugin's actionSave URL,
-     * e.g.: actions/simple-rp-menu/simple-rp-menu-items/save-menu-items
+     * e.g.: actions/rp-simple-menu/rp-simple-menu-items/save-menu-items
      *
      * @return mixed
      */
@@ -147,6 +147,6 @@ class SimpleRpMenuItemsController extends Controller
                 }
             }
         }
-        Craft::$app->getSession()->setNotice(Craft::t('simple-rp-menu', 'Menu items saved successfully.'));
+        Craft::$app->getSession()->setNotice(Craft::t('rp-simple-menu', 'Menu items saved successfully.'));
     }
 }
