@@ -29,6 +29,7 @@
           "rpqa99\\rpsimplemenu\\": "src/"
         }
     },
+
     "extra": {
         "name": "Simple RP Menu",
         "handle": "rp-simple-menu",
