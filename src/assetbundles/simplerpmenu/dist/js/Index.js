@@ -21,7 +21,7 @@ var menuList = $('#menu-list'),
             menuName = menuParent.attr('data-name');
 
         $(this).on('click',function() {
-            if (confirm(Craft.t('simplerpmenu', 'Are you sure you want to delete the "{menuName}" menu?', {menuName: menuName }))) {
+            if (confirm(Craft.t('rp-simple-menu', 'Are you sure you want to delete the "{menuName}" menu?', {menuName: menuName }))) {
                 var data = {
                     menuID: menuID
                 }
@@ -31,7 +31,7 @@ var menuList = $('#menu-list'),
                 $.post(siteUrl +'/simplerpmenu/delete-menu', data, null, 'json')
                     .done(function( data ) {
                         if (data.success) {
-                            Craft.cp.displayNotice(Craft.t('simplerpmenu', 'Menu successfully deleted.'));
+                            Craft.cp.displayNotice(Craft.t('rp-simple-menu', 'Menu successfully deleted.'));
                             menuParent.remove();
                             
                             var menuListItems = menuList.find('tbody tr'),
@@ -43,7 +43,7 @@ var menuList = $('#menu-list'),
                                 $('#menu-none').removeClass('hidden');
                             }
                         }
-                        else Craft.cp.displayError(Craft.t('simplerpmenu','Menu was not deleted. Please try again.'));
+                        else Craft.cp.displayError(Craft.t('rp-simple-menu','Menu was not deleted. Please try again.'));
                     });
             }
         });

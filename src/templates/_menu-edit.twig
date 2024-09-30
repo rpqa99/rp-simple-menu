@@ -2,22 +2,22 @@
 {% import "_includes/forms" as forms %}
 
 {% if errors is defined and originalMenu is defined %}
-	{% set title = "Edit Menu -  " ~ originalMenu.name |t('simplerpmenu') %}
+	{% set title = "Edit Menu -  " ~ originalMenu.name |t('rp-simple-menu') %}
 {% else %}
-	{% set title = "Edit Menu -  " ~ menu.name |t('simplerpmenu') %}
+	{% set title = "Edit Menu -  " ~ menu.name |t('rp-simple-menu') %}
 {% endif %}
 
 {% set selectedTab = '' %}
 
 {% set tabs = {
-    menus: { label: "All Menus"|t('simplerpmenu'), url: url('simplerpmenu/' ~ objSite.handle) },
-    new:    { label: "New Menu"|t('simplerpmenu'), url: url('simplerpmenu/menu-new/' ~ objSite.handle) }
+    menus: { label: "All Menus"|t('rp-simple-menu'), url: url('simplerpmenu/' ~ objSite.handle) },
+    new:    { label: "New Menu"|t('rp-simple-menu'), url: url('simplerpmenu/menu-new/' ~ objSite.handle) }
 } %}
 
 {% set content %}
     <form method="post" accept-charset="UTF-8">
         {{ csrfInput() }}
-        <input type="hidden" name="action" value="simplerpmenu/simplerpmenu/menu-edit" />
+        <input type="hidden" name="action" value="rp-simple-menu/rp-simple-menu/menu-edit" />
         <input type="hidden" name="data[id]" value="{{menu.id}}" />
         <input type="hidden" name="data[site_id]" value="{{menu.site_id}}" />
 
@@ -49,7 +49,7 @@
 
         {{
             forms.textField({
-                label: "Name"|t('simplerpmenu'),
+                label: "Name"|t('rp-simple-menu'),
                 id: 'name',
                 name: 'data[name]',
                 first: true,
@@ -61,7 +61,7 @@
         {{ nameValidationError }}
         {{
             forms.textField({
-                label: "Handle"|t('simplerpmenu'),
+                label: "Handle"|t('rp-simple-menu'),
                 id: 'handle',
                 name: 'data[handle]',
                 required: true,
@@ -71,8 +71,8 @@
         {{ handleValidationError }}
         <div class="buttons">
             <div class="btngroup submit first">
-                <input type="submit" class="btn submit" value="{{ 'Save'|t('simplerpmenu') }}" />
-                <a class="btn back-button" href="{{url('simplerpmenu/' ~ objSite.handle)}}">{{ "Back"|t('simplerpmenu') }}</a>
+                <input type="submit" class="btn submit" value="{{ 'Save'|t('rp-simple-menu') }}" />
+                <a class="btn back-button" href="{{url('simplerpmenu/' ~ objSite.handle)}}">{{ "Back"|t('rp-simple-menu') }}</a>
             </div>
         </div>
     </form>

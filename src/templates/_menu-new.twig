@@ -1,13 +1,13 @@
 {% extends "_layouts/cp" %}
 {% import "_includes/forms" as forms %}
 
-{% set title = "New Menu"|t('simplerpmenu') %}
+{% set title = "New Menu"|t('rp-simple-menu') %}
 
 {% set selectedTab = 'new' %}
 
 {% set tabs = {
-    menus: { label: "All Menus"|t('simplerpmenu'), url: url('simplerpmenu/' ~ objSite.handle) },
-    new:    { label: "New Menu"|t('simplerpmenu'), url: url('simplerpmenu/menu-new/' ~ objSite.handle) }
+    menus: { label: "All Menus"|t('rp-simple-menu'), url: url('simplerpmenu/' ~ objSite.handle) },
+    new:    { label: "New Menu"|t('rp-simple-menu'), url: url('simplerpmenu/menu-new/' ~ objSite.handle) }
 } %}
 
 {% set showSiteMenu = (craft.app.getIsMultiSite() ? true : false) %}
@@ -23,7 +23,7 @@
 {% set content %}
     <form id="form-menu-new" method="post" accept-charset="UTF-8">
         {{ csrfInput() }}
-        <input type="hidden" name="action" value="simplerpmenu/simplerpmenu/save-menu" />
+        <input type="hidden" name="action" value="rp-simple-menu/rp-simple-menu/save-menu" />
         <input type="hidden" name="data[site_id]" value="{{objSite.id}}" />
 
         {% set nameValidationError = '' %}
@@ -56,7 +56,7 @@
 
         {{
             forms.textField({
-                label: "Name"|t('simplerpmenu'),
+                label: "Name"|t('rp-simple-menu'),
                 id: 'name',
                 name: 'data[name]',
                 first: true,
@@ -68,7 +68,7 @@
         {{ nameValidationError }}
         {{
             forms.textField({
-                label: "Handle"|t('simplerpmenu'),
+                label: "Handle"|t('rp-simple-menu'),
                 id: 'handle',
                 name: 'data[handle]',
                 required: true,
@@ -78,8 +78,8 @@
         {{ handleValidationError }}
         <div class="buttons">
             <div class="btngroup simplerpmenubtngroup submit first">
-                <input type="submit" class="btn submit" value="{{ 'Save'|t('simplerpmenu') }}" />
-                <a class="btn back-button" href="{{url('simplerpmenu/' ~ objSite.handle)}}">{{ "Back"|t('simplerpmenu') }}</a>
+                <input type="submit" class="btn submit" value="{{ 'Save'|t('rp-simple-menu') }}" />
+                <a class="btn back-button" href="{{url('simplerpmenu/' ~ objSite.handle)}}">{{ "Back"|t('rp-simple-menu') }}</a>
             </div>
         </div>
     </form>

@@ -93,7 +93,7 @@ class SimpleRpMenuService extends Component
 
         $save = $record->save();
         if (!$save) {
-            Craft::getLogger()->log( $record->getErrors(), LOG_ERR, 'simplerpmenu' );
+            Craft::getLogger()->log( $record->getErrors(), LOG_ERR, 'rp-simple-menu' );
         }
         return $save;
     }
@@ -110,7 +110,7 @@ class SimpleRpMenuService extends Component
      */
     public function getMenuHTML($handle = false, $config ) {
         if ($handle === false || ($menu = $this->getMenuByHandle($handle)) === null) {
-            echo '<p>' . Craft::t('simplerpmenu', 'A menu with this handle does not exist!') . '</p>';
+            echo '<p>' . Craft::t('rp-simple-menu', 'A menu with this handle does not exist!') . '</p>';
             return;
         }
 
@@ -217,7 +217,7 @@ class SimpleRpMenuService extends Component
             $menu_class .= ' nav-link';
         }
 
-        $menuItemName = Craft::t('simplerpmenu', $menu_item['name']);
+        $menuItemName = Craft::t('rp-simple-menu', $menu_item['name']);
         if($customShortContent){
             $menuItemName = $customShortContent;
         }
