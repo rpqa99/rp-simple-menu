@@ -39,7 +39,7 @@ use craft\web\Controller;
  * @package   SimpleRpMenu
  * @since     1.0.0
  */
-class SimpleRpMenuController extends Controller
+class RpSimpleMenuController extends Controller
 {
 
     // Protected Properties
