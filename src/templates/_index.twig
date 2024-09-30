@@ -26,8 +26,8 @@
 {% set selectedTab = 'menus' %}
 
 {% set tabs = {
-    menus:  { label: "All Menus"|t('rp-simple-menu'), url: url('simplerpmenu/' ~ objSite.handle) },
-    new:    { label: "New Menu"|t('rp-simple-menu'), url: url('simplerpmenu/menu-new/' ~ objSite.handle) }
+    menus:  { label: "All Menus"|t('simplerpmenu'), url: url('simplerpmenu/' ~ objSite.handle) },
+    new:    { label: "New Menu"|t('simplerpmenu'), url: url('simplerpmenu/menu-new/' ~ objSite.handle) }
 } %}
 
 {% set showSiteMenu = (craft.app.getIsMultiSite() ? true : false) %}
@@ -42,25 +42,25 @@
 
 {# The content of the CP Section#}
 {% set content %}
-    <p id="menu-none" {% if menus is not empty %} class="hidden" {% endif %}>{{ "No menus exist yet."|t('rp-simple-menu') }}</p>
+    <p id="menu-none" {% if menus is not empty %} class="hidden" {% endif %}>{{ "No menus exist yet."|t('simplerpmenu') }}</p>
     {% if menus | length %}
     <table id="menu-list" class="data fullwidth collapsible">
         <thead>
-            <th scope="col">{{ "Name"|t('rp-simple-menu') }}</th>
-            <th scope="col">{{ "Handle"|t('rp-simple-menu') }}</th>
+            <th scope="col">{{ "Name"|t('simplerpmenu') }}</th>
+            <th scope="col">{{ "Handle"|t('simplerpmenu') }}</th>
             <td class="thin"></td>
             <td class="thin"></td>
         </thead>
         <tbody>
         {% for menu in menus %}
-            <tr data-id="{{ menu.id }}" data-name="{{ menu.name|t('rp-simple-menu') }}">
-                <th scope="row" data-title="{{ 'Name'|t('rp-simple-menu') }}"><a href="{{ url('simplerpmenu/menu-items/' ~ menu.id) }}">{{ menu.name|t('rp-simple-menu') }}</a></th>
-                <td data-title="{{ 'Handle'|t('rp-simple-menu') }}"><code>{{ menu.handle }}</code></td>
+            <tr data-id="{{ menu.id }}" data-name="{{ menu.name|t('simplerpmenu') }}">
+                <th scope="row" data-title="{{ 'Name'|t('simplerpmenu') }}"><a href="{{ url('simplerpmenu/menu-items/' ~ menu.id) }}">{{ menu.name|t('simplerpmenu') }}</a></th>
+                <td data-title="{{ 'Handle'|t('simplerpmenu') }}"><code>{{ menu.handle }}</code></td>
                 <td class="thin">
-                    <a class="edit icon" title="{{ 'Edit'|t('rp-simple-menu') }}" href="{{ url('simplerpmenu/menu-edit/' ~ menu.id) }}" role="button"></a>
+                    <a class="edit icon" title="{{ 'Edit'|t('simplerpmenu') }}" href="{{ url('simplerpmenu/menu-edit/' ~ menu.id) }}" role="button"></a>
                 </td>
                 <td class="thin">
-                    <a class="delete icon" title="{{ 'Delete'|t('rp-simple-menu') }}" role="button"></a>
+                    <a class="delete icon" title="{{ 'Delete'|t('simplerpmenu') }}" role="button"></a>
                 </td>
             </tr>
         {% endfor %}
@@ -68,7 +68,7 @@
     </table>
     {% endif %}
     <div id="menu-new" class="buttons">
-        <a href="{{ url('simplerpmenu/menu-new/' ~ objSite.handle) }}" class="btn submit add icon">{{ "New Menu"|t('rp-simple-menu') }}</a>
+        <a href="{{ url('simplerpmenu/menu-new/' ~ objSite.handle) }}" class="btn submit add icon">{{ "New Menu"|t('simplerpmenu') }}</a>
     </div>
 {% endset %}
 {% js %}

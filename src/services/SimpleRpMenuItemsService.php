@@ -88,7 +88,7 @@ class SimpleRpMenuItemsService extends Component
 
         $save = $record->save();
         if ( !$save ) {
-            Craft::getLogger()->log( $record->getErrors(), LOG_ERR, 'rp-simple-menu' );
+            Craft::getLogger()->log( $record->getErrors(), LOG_ERR, 'simplerpmenu' );
         }
         return $record->id;
     }
@@ -264,7 +264,7 @@ class SimpleRpMenuItemsService extends Component
                     $localHTML .= '<div class="inner">';
                         $localHTML .= '<div class="row field">';
                             $localHTML .= '<div class="heading">';
-                                $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Name') . ':</label>';
+                                $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Name') . ':</label>';
                             $localHTML .= '</div>';
                             $localHTML .= '<div class="input">';
                                 $localHTML .= '<input class="text nicetext fullwidth" type="text" name="item-name" value="' .$menuItem['name']. '" />';
@@ -272,7 +272,7 @@ class SimpleRpMenuItemsService extends Component
                         $localHTML .= '</div>';
                         $localHTML .= '<div class="row field">';
                             $localHTML .= '<div class="heading">';
-                                $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Without Link ?') . ':</label>';
+                                $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Without Link ?') . ':</label>';
                             $localHTML .= '</div>';
                             $localHTML .= '<div class="input">';
                                 $localHTML .= '<select id="noLink-'.$menuItem['id'].'" class="text nicetext fullwidth noLink-menu" name="noLink">';
@@ -284,7 +284,7 @@ class SimpleRpMenuItemsService extends Component
 
                         // $localHTML .= '<div class="row field">';
                         //     $localHTML .= '<div class="heading">';
-                        //         $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Display Short Content ?') . ':</label>';
+                        //         $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Display Short Content ?') . ':</label>';
                         //     $localHTML .= '</div>';
                         //     $localHTML .= '<div class="input">';
                         //         $localHTML .= '<select id="customShortContent-'.$menuItem['id'].'" class="text nicetext fullwidth" name="customShortContent">';
@@ -296,7 +296,7 @@ class SimpleRpMenuItemsService extends Component
 
                         $localHTML .= '<div class="row field">';
                             $localHTML .= '<div class="heading">';
-                                $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Title') . ':</label>';
+                                $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Title') . ':</label>';
                             $localHTML .= '</div>';
                             $localHTML .= '<div class="input">';
                                 $localHTML .= '<input class="text nicetext fullwidth" type="text" name="title" value="' .$menuItem['title']. '" />';
@@ -306,7 +306,7 @@ class SimpleRpMenuItemsService extends Component
 
                         $localHTML .= '<div class="row field">';
                             $localHTML .= '<div class="heading">';
-                                $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Menu Custom Short Content') . ':</label>';
+                                $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Menu Custom Short Content') . ':</label>';
                             $localHTML .= '</div>';
                             $localHTML .= '<div class="input">';
                                 $localHTML .= '<textarea class="text nicetext fullwidth" name="custom-short-content">' .$menuItem['customShortContent']. '</textarea>';
@@ -316,7 +316,7 @@ class SimpleRpMenuItemsService extends Component
                         if ($menuItem['entry_id'] == '') {
                             $localHTML .= '<div class="row field">';
                                 $localHTML .= '<div class="heading">';
-                                    $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Custom URL') . ':</label>';
+                                    $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Custom URL') . ':</label>';
                                 $localHTML .= '</div>';
                                 $localHTML .= '<div class="input">';
                                     $localHTML .= '<input class="text nicetext fullwidth" type="text" name="custom-url" value="' .$menuItem['custom_url']. '" />';
@@ -325,7 +325,7 @@ class SimpleRpMenuItemsService extends Component
                         }
                         $localHTML .= '<div class="row field">';
                             $localHTML .= '<div class="heading">';
-                                $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Class') . ':</label>';
+                                $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Class') . ':</label>';
                             $localHTML .= '</div>';
                             $localHTML .= '<div class="input">';
                                 $localHTML .= '<input class="text nicetext fullwidth" type="text" name="class" value="' .$menuItem['class']. '" />';
@@ -333,7 +333,7 @@ class SimpleRpMenuItemsService extends Component
                         $localHTML .= '</div>';
                         $localHTML .= '<div class="row field">';
                             $localHTML .= '<div class="heading">';
-                                $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Class parent') . ':</label>';
+                                $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Class parent') . ':</label>';
                             $localHTML .= '</div>';
                             $localHTML .= '<div class="input">';
                                 $localHTML .= '<input class="text nicetext fullwidth" type="text" name="class-parent" value="' .$menuItem['class_parent']. '" />';
@@ -341,7 +341,7 @@ class SimpleRpMenuItemsService extends Component
                         $localHTML .= '</div>';
                         $localHTML .= '<div class="row field">';
                             $localHTML .= '<div class="heading">';
-                                $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Data JSON') . ':</label>';
+                                $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Data JSON') . ':</label>';
                             $localHTML .= '</div>';
                             $localHTML .= '<div class="input">';
                                 $localHTML .= '<textarea class="text nicetext fullwidth" name="data-json">' .$menuItem['data_json']. '</textarea>';
@@ -350,7 +350,7 @@ class SimpleRpMenuItemsService extends Component
 
                         $localHTML .= '<div class="row field">';
                             $localHTML .= '<div class="heading">';
-                                $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Target options') . ':</label>';
+                                $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Target options') . ':</label>';
                             $localHTML .= '</div>';
                             $localHTML .= '<div class="input">';
                                 $localHTML .= '<select id="target-'.$menuItem['id'].'" class="text nicetext fullwidth" name="target">';
@@ -363,7 +363,7 @@ class SimpleRpMenuItemsService extends Component
                         if ($menuItem['custom_url'] == '') {
                             $localHTML .= '<div class="row field">';
                                 $localHTML .= '<div class="heading">';
-                                    if ($entry) $localHTML .= '<label>' . Craft::t('rp-simple-menu', 'Original') . ':</label> <a href="' . $entry->url . '" target="_blank">' . $entry->title . '</a>';
+                                    if ($entry) $localHTML .= '<label>' . Craft::t('simplerpmenu', 'Original') . ':</label> <a href="' . $entry->url . '" target="_blank">' . $entry->title . '</a>';
                                 $localHTML .= '</div>';
                             $localHTML .= '</div>';
                         }
