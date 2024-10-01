@@ -222,6 +222,10 @@ class SimpleRpMenuService extends Component
             $menuItemName = $customShortContent;
         }
 
+        if(!$title){
+            $title = $menuItemName;
+        }
+
         $current_active_url = Craft::$app->request->getServerName() . Craft::$app->request->getUrl();
         if ($current_active_url != '' && $menu_item_url != '') {
             $menu_item_url_filtered = preg_replace('#^https?://#', '', $menu_item_url);
